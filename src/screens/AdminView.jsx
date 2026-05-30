@@ -34,8 +34,11 @@ export default function AdminView() {
 
   return (
     <div>
-      <TabHeader eyebrow="Operations" title="Admin">
+      <TabHeader eyebrow="Internal · Operations" title="Admin">
         <p className="mt-1 text-[13px] text-ink-soft">Marketplace health, escrow & dispute resolution.</p>
+        <div className="mt-3 flex items-center gap-2 rounded-xl bg-amber-50 px-3 py-2 text-[11px] font-semibold text-amber-700 ring-1 ring-amber-100">
+          <Icon.shield size={14} /> Internal staff dashboard — not part of the customer mobile app.
+        </div>
       </TabHeader>
 
       {/* Tabs */}
