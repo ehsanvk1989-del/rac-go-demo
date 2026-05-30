@@ -59,6 +59,20 @@ export const Icon = {
   mail: (p) => svg(<><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m4 7 8 6 8-6" /></>, p),
   cash: (p) => svg(<><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5v9M14.2 9.3c-.5-.7-1.4-1.1-2.4-1.1-1.4 0-2.3.7-2.3 1.8 0 2.6 5 1.3 5 4 0 1.2-1 1.9-2.5 1.9-1.1 0-2.1-.4-2.6-1.2" /></>, p),
   bookmark: (p) => svg(<path d="M6.5 4h11v16l-5.5-3.5L6.5 20V4Z" />, p),
+  plus: (p) => svg(<path d="M12 5v14M5 12h14" />, p),
+  grid: (p) => svg(<><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="1.5" /></>, p),
+  chart: (p) => svg(<><path d="M4 4v16h16" /><path d="M7.5 14l3-3.5 3 2L18 7" /></>, p),
+  trend: (p) => svg(<><path d="M4 15l5-5 3 3 7-7" /><path d="M16 6h3v3" /></>, p),
+  pause: (p) => svg(<><rect x="7" y="5" width="3.5" height="14" rx="1" /><rect x="13.5" y="5" width="3.5" height="14" rx="1" /></>, p),
+  play: (p) => svg(<path d="M7 5l11 7-11 7V5Z" />, p),
+  archive: (p) => svg(<><rect x="3.5" y="5" width="17" height="4" rx="1" /><path d="M5 9v9a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 18V9M9.5 13h5" /></>, p),
+  copy: (p) => svg(<><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8" /></>, p),
+  edit: (p) => svg(<><path d="M5 19h4l9-9-4-4-9 9v4Z" /><path d="M13 6.5 17.5 11" /></>, p),
+  upload: (p) => svg(<><path d="M12 16V5" /><path d="m7.5 9.5 4.5-4.5 4.5 4.5" /><path d="M5 16v2.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V16" /></>, p),
+  message: (p) => svg(<path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-4 3.5V16H4a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 4 5.5Z" />, p),
+  tag: (p) => svg(<><path d="M4 4h7l9 9-7 7-9-9V4Z" /><circle cx="8" cy="8" r="1.4" fill="currentColor" stroke="none" /></>, p),
+  layers: (p) => svg(<><path d="M12 3 3 8l9 5 9-5-9-5Z" /><path d="M3 13l9 5 9-5M3 16.5l9 5 9-5" /></>, p),
+  refresh: (p) => svg(<><path d="M20 11a8 8 0 0 0-14-4.5L4 8" /><path d="M4 4v4h4" /><path d="M4 13a8 8 0 0 0 14 4.5L20 16" /><path d="M20 20v-4h-4" /></>, p),
 }
 
 export function CategoryIcon({ id, size = 30, className = '' }) {

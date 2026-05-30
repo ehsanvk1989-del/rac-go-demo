@@ -51,8 +51,28 @@ the bottom of the Profile screen for the demo.
    Identity → Payment) that drives the booking into the lifecycle.
 5. **Customer Booking Status** — live status, lifecycle steps, handoff photos,
    escrow strip, audit timeline, and actions to advance the machine.
-6. **Provider Dashboard** — switchable provider, KPIs, action queue,
-   inventory availability, escrow payout balance.
+6. **Provider Console** — a full marketplace-operator app (Airbnb/Turo-host
+   style) living under `/provider` with its own section navigation:
+   - **Dashboard** — earnings banner with revenue trend, pending-request alert,
+     KPI grid (today's bookings, upcoming deliveries, active rentals, pending
+     requests, monthly earnings, escrow balance) and performance rings
+     (rating, response rate, acceptance rate).
+   - **Bookings** — request/active/past queues, accept/reject, message the
+     traveller, booking timeline, handoff & return inspection photo uploads.
+   - **Inventory** — listing cards with status, earnings, bookings count,
+     rating; edit / pause / resume / duplicate / archive / view performance.
+   - **Add Item** — a 7-step wizard: Basics → Photos → Pricing →
+     Availability → Delivery → Verification → Review & Publish.
+   - **Calendar** — month grid of booked / available / pending / maintenance
+     dates; tap any free date to block it for maintenance.
+   - **Deliveries** — airport & hotel deliveries, upcoming pickups/returns,
+     and mock flight-tracking status.
+   - **Earnings** — withdraw balance, revenue chart, fee/escrow breakdown,
+     upcoming and historical payouts.
+   - **Analytics** — most-rented item, revenue per item, utilization &
+     occupancy, weekday demand, seasonal trends and a demand heatmap.
+   - **Trust center** — verification status, safety checks, equipment recall
+     alerts, customer reviews and provider score.
 7. **Profile** (mobile tab) — user summary with verification status, role
    switcher (Customer / Provider), account & verification, travel preferences,
    saved items (wishlist, recently viewed, favourite providers), support &

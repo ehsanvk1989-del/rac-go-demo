@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useReducer, useCallback } from 'react'
-import { BOOKINGS, DISPUTES } from '../data/mockData'
+import { BOOKINGS, DISPUTES, ITEMS } from '../data/mockData'
 import { STATES } from '../lib/bookingMachine'
 
 const StoreContext = createContext(null)
@@ -10,19 +10,35 @@ function nowStamp() {
   return d.toISOString().slice(0, 16).replace('T', ' ')
 }
 
+// Seed inventory with operational fields the provider app needs.
+const seededItems = ITEMS.map((i) => ({
+  status: 'active', // active | paused | archived
+  brand: i.name.split(' ')[0],
+  model: '—',
+  ...i,
+}))
+
 const initialState = {
   bookings: BOOKINGS,
   disputes: DISPUTES,
+  items: seededItems,
+  // Dates the provider has manually blocked for maintenance (ISO strings).
+  blockedDates: ['2026-06-11', '2026-06-12'],
   // The in-progress booking the customer is building in the Booking Flow.
   draft: null,
   // Which actor "lens" the demo is viewed through (affects allowed actions).
   role: 'customer',
+  // The provider currently signed in to the provider console.
+  activeProviderId: 'p4',
 }
 
 function reducer(state, action) {
   switch (action.type) {
     case 'SET_ROLE':
       return { ...state, role: action.role }
+
+    case 'SET_ACTIVE_PROVIDER':
+      return { ...state, activeProviderId: action.id }
 
     case 'START_DRAFT':
       return { ...state, draft: action.draft }
@@ -32,6 +48,39 @@ function reducer(state, action) {
 
     case 'CLEAR_DRAFT':
       return { ...state, draft: null }
+
+    case 'ADD_ITEM':
+      return { ...state, items: [action.item, ...state.items] }
+
+    case 'SET_ITEM_STATUS':
+      return {
+        ...state,
+        items: state.items.map((i) => (i.id === action.id ? { ...i, status: action.status } : i)),
+      }
+
+    case 'DUPLICATE_ITEM': {
+      const src = state.items.find((i) => i.id === action.id)
+      if (!src) return state
+      const copy = {
+        ...src,
+        id: `i${Math.floor(1000 + Math.random() * 9000)}`,
+        name: `${src.name} (copy)`,
+        status: 'paused',
+        reviews: 0,
+        rating: 0,
+      }
+      return { ...state, items: [copy, ...state.items] }
+    }
+
+    case 'TOGGLE_BLOCKED_DATE': {
+      const has = state.blockedDates.includes(action.date)
+      return {
+        ...state,
+        blockedDates: has
+          ? state.blockedDates.filter((d) => d !== action.date)
+          : [...state.blockedDates, action.date],
+      }
+    }
 
     case 'COMMIT_DRAFT': {
       // Turn the working draft into a real booking in Draft state.
@@ -111,10 +160,15 @@ export function StoreProvider({ children }) {
     () => ({
       ...state,
       setRole: (role) => dispatch({ type: 'SET_ROLE', role }),
+      setActiveProvider: (id) => dispatch({ type: 'SET_ACTIVE_PROVIDER', id }),
       startDraft: (draft) => dispatch({ type: 'START_DRAFT', draft }),
       updateDraft: (patch) => dispatch({ type: 'UPDATE_DRAFT', patch }),
       clearDraft: () => dispatch({ type: 'CLEAR_DRAFT' }),
       commitDraft: (id) => dispatch({ type: 'COMMIT_DRAFT', id }),
+      addItem: (item) => dispatch({ type: 'ADD_ITEM', item }),
+      setItemStatus: (id, status) => dispatch({ type: 'SET_ITEM_STATUS', id, status }),
+      duplicateItem: (id) => dispatch({ type: 'DUPLICATE_ITEM', id }),
+      toggleBlockedDate: (date) => dispatch({ type: 'TOGGLE_BLOCKED_DATE', date }),
       transition,
     }),
     [state, transition],
