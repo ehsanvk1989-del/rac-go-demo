@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+/*
+  RentACot Go design tokens
+  Premium travel-tech: clean white canvas, soft blue/teal-green accents.
+*/
+@theme {
+  --color-canvas: #f7f9fb;
+  --color-ink: #0f172a;
+  --color-ink-soft: #475569;
+  --color-muted: #94a3b8;
+  --color-line: #e6ebf1;
+
+  --color-brand-50: #eef6ff;
+  --color-brand-100: #d9ebff;
+  --color-brand-200: #b7d8ff;
+  --color-brand-300: #84bbff;
+  --color-brand-400: #4f97f7;
+  --color-brand-500: #2b76e6;
+  --color-brand-600: #1d5bc4;
+  --color-brand-700: #1a489c;
+
+  --color-teal-50: #ecfdf6;
+  --color-teal-100: #d2f7e7;
+  --color-teal-300: #6fdcb0;
+  --color-teal-500: #14b87f;
+  --color-teal-600: #0d9466;
+
+  --color-amber-soft: #f59e0b;
+
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 6px 24px -8px rgba(15, 23, 42, 0.12);
+  --shadow-float: 0 18px 48px -16px rgba(15, 23, 42, 0.22);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #e2e8f0;
+  color: var(--color-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbars on horizontal carousels but keep scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: fade-rise 0.32s ease both;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.animate-sheet {
+  animation: sheet-up 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
