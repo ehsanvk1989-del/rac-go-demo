@@ -57,7 +57,7 @@ export default function Bookings() {
               className="block w-full overflow-hidden rounded-2xl bg-white text-left shadow-soft ring-1 ring-line/70 active:scale-[0.99] transition"
             >
               <div className="flex gap-3 p-3">
-                <GearImage item={item} className="h-16 w-16" rounded="rounded-xl" label={false} />
+                <GearImage item={item} className="h-16 w-16" rounded="rounded-xl" overlay={false} />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">
                     <p className="truncate text-[13.5px] font-bold text-ink">{item.name}</p>

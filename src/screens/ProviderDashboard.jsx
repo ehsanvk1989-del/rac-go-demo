@@ -96,7 +96,7 @@ export default function ProviderDashboard() {
               return (
                 <div key={b.id} className="rounded-2xl bg-white p-3.5 shadow-soft ring-1 ring-line/70">
                   <div className="flex items-center gap-3">
-                    <GearImage item={item} className="h-12 w-12" rounded="rounded-lg" label={false} />
+                    <GearImage item={item} className="h-12 w-12" rounded="rounded-lg" overlay={false} />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-[13px] font-bold text-ink">{item.name}</p>
                       <p className="text-[11px] text-muted">{b.id} · {b.customer}</p>
@@ -134,7 +134,7 @@ export default function ProviderDashboard() {
             )
             return (
               <div key={i.id} className="flex items-center gap-3 rounded-2xl bg-white p-3 shadow-soft ring-1 ring-line/70">
-                <GearImage item={i} className="h-12 w-12" rounded="rounded-lg" label={false} />
+                <GearImage item={i} className="h-12 w-12" rounded="rounded-lg" overlay={false} />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-[13px] font-bold text-ink">{i.name}</p>
                   <p className="text-[11px] text-muted">{eur(i.pricePerDay)}/day · {i.reviews} reviews</p>

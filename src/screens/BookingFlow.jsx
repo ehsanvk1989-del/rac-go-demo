@@ -86,7 +86,7 @@ export default function BookingFlow() {
 
       {/* Item recap */}
       <div className="mx-4 mt-4 flex items-center gap-3 rounded-2xl bg-white p-3 shadow-soft ring-1 ring-line/70">
-        <GearImage item={item} className="h-14 w-14" rounded="rounded-xl" label={false} />
+        <GearImage item={item} className="h-14 w-14" rounded="rounded-xl" overlay={false} />
         <div className="min-w-0 flex-1">
           <p className="truncate text-[13px] font-bold text-ink">{item.name}</p>
           <p className="text-[11px] text-muted">{provider.name} · {eur(item.pricePerDay)}/day</p>

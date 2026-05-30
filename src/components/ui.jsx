@@ -4,25 +4,43 @@ import { STATE_STYLES } from '../lib/bookingMachine'
 
 export const eur = (n) => `€${n}`
 
-/* Gradient "photo" placeholder for an item, branded by category. */
-export function GearImage({ item, className = '', rounded = 'rounded-2xl', label = true }) {
+/*
+  Gradient "photo" placeholder for an item, branded by category.
+
+  `overlay` controls the floating category chip + "Instant" pill. These are
+  sized for large images (hero / cards) and would overflow small thumbnails,
+  so thumbnails pass overlay={false} and instead show a clean centered icon
+  that scales with the box.
+*/
+export function GearImage({ item, className = '', rounded = 'rounded-2xl', label = true, overlay = true }) {
   const grad = CATEGORY_GRADIENT[item.category] || 'from-brand-100 to-brand-300'
   const cat = categoryById(item.category)
   return (
     <div
       className={`relative overflow-hidden bg-gradient-to-br ${grad} ${rounded} ${className}`}
     >
-      <div className="absolute inset-0 opacity-[0.18] flex items-center justify-center">
-        <CategoryIcon id={item.category} size={120} className="text-white" />
-      </div>
-      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-semibold text-ink-soft backdrop-blur">
-        <CategoryIcon id={item.category} size={14} className="text-brand-600" />
-        {label && (cat?.label || 'Gear')}
-      </div>
-      {item.instantBook && (
-        <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-ink/80 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
-          <Icon.bolt size={12} /> Instant
+      {overlay ? (
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.18]">
+          <CategoryIcon id={item.category} size={120} className="text-white" />
         </div>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center text-white/85">
+          <CategoryIcon id={item.category} className="h-1/2 w-1/2" />
+        </div>
+      )}
+
+      {overlay && (
+        <>
+          <div className="absolute left-2.5 top-2.5 flex max-w-[calc(100%-1.25rem)] items-center gap-1.5 rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-semibold text-ink-soft backdrop-blur">
+            <CategoryIcon id={item.category} size={14} className="shrink-0 text-brand-600" />
+            {label && <span className="truncate">{cat?.label || 'Gear'}</span>}
+          </div>
+          {item.instantBook && (
+            <div className="absolute right-2.5 top-2.5 flex items-center gap-1 rounded-full bg-ink/80 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
+              <Icon.bolt size={12} /> Instant
+            </div>
+          )}
+        </>
       )}
     </div>
   )

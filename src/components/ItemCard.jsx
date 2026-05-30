@@ -14,7 +14,7 @@ export default function ItemCard({ item, variant = 'grid' }) {
         onClick={() => navigate(`/item/${item.id}`)}
         className="w-44 shrink-0 overflow-hidden rounded-2xl bg-white text-left shadow-soft ring-1 ring-line/70 active:scale-[0.98] transition"
       >
-        <GearImage item={item} className="h-28 w-full" rounded="rounded-none" label={false} />
+        <GearImage item={item} className="h-28 w-full" rounded="rounded-none" />
         <div className="p-3">
           <p className="line-clamp-1 text-[13px] font-bold text-ink">{item.name}</p>
           <p className="mt-0.5 line-clamp-1 text-[11px] text-muted">{provider.name}</p>
@@ -34,7 +34,7 @@ export default function ItemCard({ item, variant = 'grid' }) {
       onClick={() => navigate(`/item/${item.id}`)}
       className="flex w-full overflow-hidden rounded-2xl bg-white text-left shadow-soft ring-1 ring-line/70 active:scale-[0.99] transition"
     >
-      <GearImage item={item} className="h-auto w-28 shrink-0" rounded="rounded-none" label={false} />
+      <GearImage item={item} className="w-28 shrink-0 self-stretch" rounded="rounded-none" overlay={false} />
       <div className="flex flex-1 flex-col p-3">
         <div className="flex items-start justify-between gap-2">
           <p className="line-clamp-2 text-[13.5px] font-bold leading-tight text-ink">{item.name}</p>

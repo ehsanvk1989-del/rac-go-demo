@@ -41,7 +41,7 @@ export default function BookingStatus() {
             <span className="text-[11px] font-semibold text-white/85">{booking.days} days</span>
           </div>
           <div className="mt-3 flex items-center gap-3">
-            <GearImage item={item} className="h-14 w-14" rounded="rounded-xl" label={false} />
+            <GearImage item={item} className="h-14 w-14" rounded="rounded-xl" overlay={false} />
             <div className="min-w-0">
               <p className="truncate text-[14px] font-bold">{item.name}</p>
               <p className="text-[11.5px] text-white/85">{booking.startDate} → {booking.endDate}</p>
