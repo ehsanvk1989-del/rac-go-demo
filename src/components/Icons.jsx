@@ -48,6 +48,17 @@ export const Icon = {
   doc: (p) => svg(<><path d="M6 3h8l4 4v14H6V3Z" /><path d="M14 3v4h4M9 12h6M9 16h6" /></>, p),
   globe: (p) => svg(<><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.5 2.3 2.5 14.7 0 17M12 3.5c-2.5 2.3-2.5 14.7 0 17" /></>, p),
   alert: (p) => svg(<><path d="M12 4 3 19h18L12 4Z" /><path d="M12 10v4M12 16.5v.5" /></>, p),
+  user: (p) => svg(<><circle cx="12" cy="8" r="3.6" /><path d="M5 20c.7-3.6 3.5-5.5 7-5.5s6.3 1.9 7 5.5" /></>, p),
+  heart: (p) => svg(<path d="M12 20s-7-4.6-7-9.5A3.8 3.8 0 0 1 12 7a3.8 3.8 0 0 1 7-1.5C19 10.4 12 20 12 20Z" />, p),
+  heartFill: (p) => svg(<path d="M12 20s-7-4.6-7-9.5A3.8 3.8 0 0 1 12 7a3.8 3.8 0 0 1 7-1.5C19 10.4 12 20 12 20Z" fill="currentColor" stroke="none" />, p),
+  bell: (p) => svg(<><path d="M6 9a6 6 0 0 1 12 0c0 5 1.5 6.5 1.5 6.5h-15S6 14 6 9Z" /><path d="M10 19a2 2 0 0 0 4 0" /></>, p),
+  cog: (p) => svg(<><circle cx="12" cy="12" r="3" /><path d="M12 3v2.5M12 18.5V21M4.5 7.5l1.8 1M17.7 15.5l1.8 1M4.5 16.5l1.8-1M17.7 8.5l1.8-1M3 12h2.5M18.5 12H21" /></>, p),
+  logout: (p) => svg(<><path d="M9 5H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3" /><path d="M15.5 8.5 19 12l-3.5 3.5M10 12h9" /></>, p),
+  life: (p) => svg(<><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="3.4" /><path d="m6 6 3.6 3.6M14.4 14.4 18 18M18 6l-3.6 3.6M9.6 14.4 6 18" /></>, p),
+  phone: (p) => svg(<path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z" />, p),
+  mail: (p) => svg(<><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m4 7 8 6 8-6" /></>, p),
+  cash: (p) => svg(<><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5v9M14.2 9.3c-.5-.7-1.4-1.1-2.4-1.1-1.4 0-2.3.7-2.3 1.8 0 2.6 5 1.3 5 4 0 1.2-1 1.9-2.5 1.9-1.1 0-2.1-.4-2.6-1.2" /></>, p),
+  bookmark: (p) => svg(<path d="M6.5 4h11v16l-5.5-3.5L6.5 20V4Z" />, p),
 }
 
 export function CategoryIcon({ id, size = 30, className = '' }) {

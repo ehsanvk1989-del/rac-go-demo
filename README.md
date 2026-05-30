@@ -31,7 +31,13 @@ npm run build && npm run preview
 
 ## Navigation (bottom tab bar)
 
-`Home · Search · Bookings · Provider · Admin`
+`Home · Search · Bookings · Provider · Profile`
+
+The mobile app is customer- and provider-facing. **Admin / Operations is
+deliberately not in the bottom nav** — it lives at a hidden internal route
+(`/internal/operations`, also `/admin`), representing a separate internal/web
+staff dashboard. A discreet "Staff · internal operations" link is available at
+the bottom of the Profile screen for the demo.
 
 ## Screens
 
@@ -47,9 +53,17 @@ npm run build && npm run preview
    escrow strip, audit timeline, and actions to advance the machine.
 6. **Provider Dashboard** — switchable provider, KPIs, action queue,
    inventory availability, escrow payout balance.
-7. **Admin View** — marketplace KPIs, bookings-by-state distribution, trust
-   posture, **dispute management** with before/after photo evidence and
-   resolution actions.
+7. **Profile** (mobile tab) — user summary with verification status, role
+   switcher (Customer / Provider), account & verification, travel preferences,
+   saved items (wishlist, recently viewed, favourite providers), support &
+   safety, and settings.
+
+### Internal (not a mobile tab)
+
+- **Admin / Operations View** (`/internal/operations`) — marketplace KPIs,
+  bookings-by-state distribution, trust posture, **dispute management** with
+  before/after photo evidence and resolution actions. Represents a separate
+  internal/web staff dashboard.
 
 ## The booking state machine
 

@@ -6,7 +6,7 @@ const TABS = [
   { to: '/search', label: 'Search', icon: Icon.search },
   { to: '/bookings', label: 'Bookings', icon: Icon.bookings },
   { to: '/provider', label: 'Provider', icon: Icon.provider },
-  { to: '/admin', label: 'Admin', icon: Icon.admin },
+  { to: '/profile', label: 'Profile', icon: Icon.user },
 ]
 
 export default function BottomNav() {

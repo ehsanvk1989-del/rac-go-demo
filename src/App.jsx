@@ -7,6 +7,7 @@ import BookingFlow from './screens/BookingFlow'
 import Bookings from './screens/Bookings'
 import BookingStatus from './screens/BookingStatus'
 import ProviderDashboard from './screens/ProviderDashboard'
+import Profile from './screens/Profile'
 import AdminView from './screens/AdminView'
 
 export default function App() {
@@ -36,7 +37,15 @@ export default function App() {
             <Route path="/bookings" element={<Bookings />} />
             <Route path="/bookings/:id" element={<BookingStatus />} />
             <Route path="/provider" element={<ProviderDashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            {/*
+              Admin / Operations is intentionally NOT in the mobile bottom nav.
+              It lives at a hidden internal route, representing a separate
+              internal/web operations dashboard reachable only by staff who
+              know the URL (or via the discreet link on the Profile screen).
+            */}
             <Route path="/admin" element={<AdminView />} />
+            <Route path="/internal/operations" element={<AdminView />} />
           </Routes>
         </main>
         <BottomNav />
